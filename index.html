@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTP - Mauritania Building & Public Works</title>
+    <title>MBTP - Building & Public Works | Your Partner for Reliable Infrastructure Solutions</title>
     <style>
         * {
             margin: 0;
@@ -12,15 +12,17 @@
         }
 
         :root {
-            /* Color palette inspired by Mauritanian colors and construction industry */
-            --primary-green: #2E7D32;
-            --primary-gold: #F9A825;
-            --dark-blue: #1A237E;
+            /* Updated color palette with blue as primary */
+            --primary-blue: #1565C0;
+            --secondary-blue: #0D47A1;
+            --accent-gold: #FFC107;
+            --light-blue: #E3F2FD;
             --light-gray: #F5F5F5;
             --text-dark: #212121;
             --text-light: #757575;
             --white: #FFFFFF;
             --shadow: rgba(0, 0, 0, 0.1);
+            --success-green: #4CAF50;
         }
 
         body {
@@ -50,9 +52,20 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--primary-green);
+            color: var(--primary-blue);
+        }
+
+        .logo-placeholder {
+            background: var(--light-gray);
+            border: 2px dashed #ccc;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 120px;
         }
 
         .nav-links {
@@ -69,7 +82,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-green);
+            color: var(--primary-blue);
         }
 
         .mobile-menu {
@@ -88,7 +101,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-green), var(--dark-blue));
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             color: var(--white);
             padding: 120px 2rem 80px;
             text-align: center;
@@ -108,7 +121,7 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -116,14 +129,21 @@
 
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             animation: fadeInUp 1s;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s 0.2s both;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            animation: fadeInUp 1s 0.2s both;
+            animation: fadeInUp 1s 0.3s both;
         }
 
         .image-placeholder {
@@ -139,7 +159,7 @@
         .cta-button {
             display: inline-block;
             padding: 12px 30px;
-            background: var(--primary-gold);
+            background: var(--accent-gold);
             color: var(--text-dark);
             text-decoration: none;
             border-radius: 30px;
@@ -163,7 +183,7 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--primary-green);
+            color: var(--primary-blue);
             margin-bottom: 3rem;
             position: relative;
         }
@@ -173,29 +193,43 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--primary-gold);
+            background: var(--accent-gold);
             margin: 1rem auto;
         }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        /* Company Overview Section */
+        .overview-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            margin-bottom: 3rem;
         }
 
-        .about-text {
-            font-size: 1.1rem;
+        .overview-content p {
+            font-size: 1.15rem;
             line-height: 1.8;
+            text-align: center;
             color: var(--text-dark);
         }
 
+        .founder-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-blue);
+        }
+
+        .founder-info strong {
+            color: var(--primary-blue);
+        }
+
+        /* Stats Section */
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
+            margin: 3rem 0;
         }
 
         .stat-card {
@@ -205,6 +239,7 @@
             box-shadow: 0 5px 15px var(--shadow);
             text-align: center;
             transition: transform 0.3s;
+            border-top: 4px solid var(--primary-blue);
         }
 
         .stat-card:hover {
@@ -214,7 +249,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: var(--primary-green);
+            color: var(--primary-blue);
         }
 
         .stat-label {
@@ -222,36 +257,37 @@
             margin-top: 0.5rem;
         }
 
-        /* Services Section */
-        .services {
+        /* Areas of Expertise Section */
+        .expertise {
             background: var(--light-gray);
         }
 
-        .services-grid {
+        .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .service-card {
+        .expertise-card {
             background: var(--white);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
+            border-left: 4px solid var(--primary-blue);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
+        .expertise-card:hover {
+            transform: translateX(10px);
             box-shadow: 0 15px 30px var(--shadow);
         }
 
-        .service-icon {
+        .expertise-icon {
             width: 60px;
             height: 60px;
             margin: 0 auto 1rem;
-            background: linear-gradient(135deg, var(--primary-green), var(--dark-blue));
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -260,30 +296,90 @@
             font-size: 1.5rem;
         }
 
-        .service-card h3 {
-            color: var(--primary-green);
+        .expertise-card h3 {
+            color: var(--primary-blue);
             margin-bottom: 1rem;
         }
 
-        /* Projects Section */
-        .project-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Mission & Values Section */
+        .mission-values {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .mission-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
             margin-bottom: 3rem;
         }
 
-        .project-category {
+        .mission-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .value-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .value-item h4 {
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Projects Section with Carousel */
+        .projects-carousel {
+            position: relative;
             background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 2rem;
+        }
+
+        .project-category {
+            background: var(--light-blue);
             border-radius: 10px;
             padding: 2rem;
-            box-shadow: 0 5px 15px var(--shadow);
         }
 
         .project-category h3 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
         }
 
         .project-list {
@@ -292,45 +388,141 @@
         }
 
         .project-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            color: var(--text-dark);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.3s;
         }
 
-        .project-list li:last-child {
-            border-bottom: none;
+        .project-list li:hover {
+            transform: translateX(10px);
         }
 
         .project-year {
-            color: var(--primary-gold);
+            color: var(--primary-blue);
             font-weight: bold;
-            margin-right: 0.5rem;
+            display: inline-block;
+            margin-right: 1rem;
         }
 
-        /* Mission Section */
-        .mission-values {
-            background: linear-gradient(135deg, var(--primary-green), var(--dark-blue));
-            color: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .value-item {
+        .carousel-btn {
+            padding: 10px 20px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover {
+            background: var(--secondary-blue);
+        }
+
+        .carousel-btn:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-light);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: var(--primary-blue);
+        }
+
+        /* Clients & Partners Section */
+        .clients-partners {
+            background: var(--light-gray);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .partner-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
             text-align: center;
         }
 
-        .value-item h4 {
-            color: var(--primary-gold);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+        .partner-category h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .partner-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 80px 2rem;
+            background: var(--white);
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: 0 5px 15px var(--shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        tr:hover {
+            background: var(--light-blue);
+        }
+
+        .highlight {
+            color: var(--success-green);
+            font-weight: bold;
         }
 
         /* Contact Section */
@@ -352,7 +544,7 @@
         }
 
         .contact-info h3 {
-            color: var(--primary-green);
+            color: var(--primary-blue);
             margin-bottom: 1.5rem;
         }
 
@@ -365,15 +557,199 @@
 
         .contact-item span {
             margin-right: 1rem;
-            color: var(--primary-gold);
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Market Sectors Chart */
+        .market-sectors-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .sectors-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sector-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sector-bar {
+            position: relative;
+            background: var(--light-gray);
+            border-radius: 50px;
+            height: 50px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sector-bar:hover {
+            transform: translateX(10px);
+        }
+
+        .sector-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sector-bar[data-sector="public-works"] .sector-fill {
+            background: linear-gradient(90deg, #1565C0, #42A5F5);
+        }
+
+        .sector-bar[data-sector="hydraulic"] .sector-fill {
+            background: linear-gradient(90deg, #0288D1, #4FC3F7);
+        }
+
+        .sector-bar[data-sector="environment"] .sector-fill {
+            background: linear-gradient(90deg, #43A047, #81C784);
+        }
+
+        .sector-bar[data-sector="drilling"] .sector-fill {
+            background: linear-gradient(90deg, #FB8C00, #FFB74D);
+        }
+
+        .sector-bar[data-sector="equipment"] .sector-fill {
+            background: linear-gradient(90deg, #6D4C41, #A1887F);
+        }
+
+        .sector-icon {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .sector-percentage {
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .sector-label {
+            padding-left: 20px;
+        }
+
+        .sector-label h4 {
+            margin: 0;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .sector-label p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .sectors-summary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            padding: 2.5rem;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .sectors-summary h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+        }
+
+        .sectors-summary p {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .total-projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .project-stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .stat-desc {
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 968px) {
+            .market-sectors-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sector-bar {
+                height: 45px;
+            }
+
+            .sector-label h4 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sector-percentage {
+                font-size: 0.9rem;
+            }
+
+            .sector-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            .sector-label p {
+                font-size: 0.85rem;
+            }
         }
 
         /* Footer */
         footer {
-            background: var(--text-dark);
+            background: var(--secondary-blue);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
 
         .footer-content {
@@ -387,8 +763,8 @@
 
         .download-btn {
             display: inline-block;
-            padding: 10px 25px;
-            background: var(--primary-gold);
+            padding: 12px 30px;
+            background: var(--accent-gold);
             color: var(--text-dark);
             text-decoration: none;
             border-radius: 25px;
@@ -426,17 +802,32 @@
                 font-size: 2rem;
             }
 
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
             .hero p {
                 font-size: 1.1rem;
             }
 
-            .about-content,
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-content {
                 grid-template-columns: 1fr;
             }
 
-            .stats {
-                grid-template-columns: 1fr;
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.8rem;
             }
         }
     </style>
@@ -445,12 +836,19 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">MBTP</div>
+            <div class="logo">
+                <div class="logo-placeholder">
+                    <span style="font-size: 0.8rem; color: #757575;">📷 Logo</span><br>
+                    <span style="font-size: 0.6rem; color: #999;">Company Logo Here<br>Replace with: &lt;img src="logo.png" alt="MBTP Logo" style="height: 50px;"&gt;</span>
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#mission">Mission</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#comparison">Why MBTP</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu">
@@ -461,58 +859,110 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Page 1 -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>MBTP – Mauritania</h1>
+            <div class="subtitle">Building & Public Works</div>
             <p>Your Partner for Reliable Infrastructure Solutions</p>
             <div class="image-placeholder">
                 📷 Company Logo/Hero Image<br>
-                <small>Find image on PDF Page 1 - Company logo or representative image<br>
+                <small>Find image on PDF Page 1 - MBTP Logo or hero visual<br>
                 To add: Replace this div with &lt;img src="your-image.jpg" alt="MBTP Logo" style="max-width: 100%; border-radius: 10px;"&gt;</small>
             </div>
             <a href="#contact" class="cta-button">Start Your Project</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About MBTP</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Founded in 2015 by Abdel Kader Cheiguer, MBTP is a leading Mauritanian company specializing in Building and Public Works. With extensive experience across local projects, we have established ourselves as a reliable and versatile partner serving public, private, and international clients.</p>
-                <p>Our commitment to excellence and innovation has made us a trusted name in Mauritania's infrastructure development sector.</p>
-            </div>
+    <!-- Company Overview - Page 2 -->
+    <section id="overview">
+        <h2 class="section-title">Company Overview</h2>
+        <div class="overview-content">
             <div class="image-placeholder">
-                📷 Company Operations Image<br>
-                <small>Find image on PDF Page 2 - Company operations or team photo<br>
-                To add: Replace with &lt;img src="your-image.jpg" alt="MBTP Operations"&gt;</small>
+                📷 Company Overview Visual<br>
+                <small>Find image on PDF Page 2 - Company overview image<br>
+                To add: Replace with &lt;img src="your-image.jpg" alt="MBTP Overview"&gt;</small>
+            </div>
+            <p>Founded in 2015 by Abdel Kader Cheiguer, MBTP is a Mauritanian company specializing in Building and Public Works. With extensive experience across local projects, MBTP has established itself as a reliable and versatile partner serving public, private, and international clients.</p>
+            <div class="founder-info">
+                <strong>Founder:</strong> Abdel Kader Cheiguer<br>
+                <strong>Established:</strong> 2015<br>
+                <strong>Specialization:</strong> Building and Public Works
             </div>
         </div>
-        
+
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-number">70+</div>
-                <div class="stat-label">Qualified Staff</div>
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Admin Staff</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Technical Staff</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">50+</div>
                 <div class="stat-label">Vehicles & Machines</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">2015</div>
-                <div class="stat-label">Year Founded</div>
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Values -->
-    <section>
+    <!-- Areas of Expertise - Page 3 -->
+    <section id="expertise" class="expertise">
+        <h2 class="section-title">Areas of Expertise</h2>
+        <div class="image-placeholder">
+            📷 Expertise Areas Visual<br>
+            <small>Find image on PDF Page 3 - Areas of expertise illustration<br>
+            To add: Replace with &lt;img src="your-image.jpg" alt="MBTP Expertise"&gt;</small>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">🏗️</div>
+                <h3>Public Works</h3>
+                <p>Construction and maintenance of roads & infrastructure</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">💧</div>
+                <h3>Hydraulic Construction</h3>
+                <p>Waterworks and water management</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">⚙️</div>
+                <h3>Drilling</h3>
+                <p>Water and resource boreholes</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🌿</div>
+                <h3>Environment</h3>
+                <p>Protection and sustainable management</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🚜</div>
+                <h3>Equipment Rental</h3>
+                <p>Supply of construction machinery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values - Page 4 -->
+    <section id="mission">
         <h2 class="section-title">Mission & Values</h2>
+        <div class="image-placeholder">
+            📷 Mission & Values Visual<br>
+            <small>Find image on PDF Page 4 - Mission and values graphic<br>
+            To add: Replace with &lt;img src="your-image.jpg" alt="MBTP Mission"&gt;</small>
+        </div>
         <div class="mission-values">
-            <h3 style="text-align: center; margin-bottom: 1rem;">Our Mission</h3>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">To contribute to infrastructure development in Mauritania and the sub-region through reliable, innovative, and sustainable solutions.</p>
-            
+            <div class="mission-box">
+                <h3>Mission</h3>
+                <p style="font-size: 1.2rem;">To contribute to infrastructure development in Mauritania and the sub-region through reliable, innovative, and sustainable solutions.</p>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-gold);">Core Values</h3>
             <div class="values-grid">
                 <div class="value-item">
                     <h4>Innovation</h4>
@@ -534,85 +984,222 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🏗️</div>
-                <h3>Public Works</h3>
-                <p>Construction and maintenance of roads & infrastructure</p>
+    <!-- Key Projects - Pages 5, 8, 9 (with Carousel) -->
+    <section id="projects">
+        <h2 class="section-title">Key Projects</h2>
+
+        <div class="image-placeholder">
+            📷 Projects Gallery<br>
+            <small>Find images on PDF Pages 5, 8, and 9 - Project photos and visuals<br>
+            To add: Create an image gallery with project photos</small>
+        </div>
+
+        <div class="projects-carousel">
+            <div class="carousel-container" id="carouselContainer">
+                <!-- Slide 1: Road & Transport Projects -->
+                <div class="carousel-slide">
+                    <div class="project-category">
+                        <h3>🛣️ Key Road & Transport Projects</h3>
+                        <ul class="project-list">
+                            <li>
+                                <span class="project-year">2017</span>
+                                <strong>RN1 Nouakchott–Rosso Rehabilitation</strong> – World Bank<br>
+                                Major trade corridor
+                            </li>
+                            <li>
+                                <span class="project-year">2018-2019, 2025</span>
+                                <strong>RN1 Nouakchott–Nouadhibou Maintenance</strong> – World Bank<br>
+                                Safety and durability
+                            </li>
+                            <li>
+                                <span class="project-year">2017, 2018, 2019, 2023, 2024, 2025</span>
+                                <strong>Secondary Roads & Rural Tracks</strong> – Ministry of Equipment<br>
+                                Regional connectivity
+                            </li>
+                            <li>
+                                <span class="project-year">2025</span>
+                                <strong>Atar Road Rehabilitation</strong> – Ministry of Equipment
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Environmental & Sustainable Development -->
+                <div class="carousel-slide">
+                    <div class="project-category">
+                        <h3>🌱 Environmental & Sustainable Development</h3>
+                        <ul class="project-list">
+                            <li>
+                                <span class="project-year">2022, 2024</span>
+                                <strong>Great Green Wall Project</strong> – European Union<br>
+                                Land restoration & climate resilience
+                            </li>
+                            <li>
+                                <span class="project-year">2022</span>
+                                <strong>Tree Plantations in Nouakchott</strong> – EU
+                            </li>
+                            <li>
+                                <span class="project-year">2022</span>
+                                <strong>Dune Stabilization Projects</strong> – Ministry of Environment
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Water & Hydraulic Projects -->
+                <div class="carousel-slide">
+                    <div class="project-category">
+                        <h3>💦 Water & Hydraulic Projects</h3>
+                        <ul class="project-list">
+                            <li>
+                                <span class="project-year">2017, 2019</span>
+                                <strong>Boghé & Sélibaby Wells</strong> – Ministry of Hydraulics
+                            </li>
+                            <li>
+                                <span class="project-year">2018, 2024</span>
+                                <strong>Solar Pump Installations</strong> – Ministry of Hydraulics
+                            </li>
+                            <li>
+                                <span class="project-year">2024</span>
+                                <strong>Rural Water & Sanitation Program</strong> – World Bank
+                            </li>
+                            <li>
+                                <span class="project-year">2025</span>
+                                <strong>Chinguetti Community Well</strong> – Ministry of Hydraulics
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Port & Logistics Development -->
+                <div class="carousel-slide">
+                    <div class="project-category">
+                        <h3>🚢 Port & Logistics Development</h3>
+                        <ul class="project-list">
+                            <li>
+                                <span class="project-year">2023</span>
+                                <strong>Nouadhibou Port Expansion</strong> – Government of Mauritania
+                            </li>
+                            <li>
+                                Strengthening trade and export capacity with port infrastructure
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">💧</div>
-                <h3>Hydraulic Construction</h3>
-                <p>Waterworks and water management systems</p>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">← Previous</button>
+                <button class="carousel-btn" id="nextBtn">Next →</button>
             </div>
-            <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Drilling</h3>
-                <p>Water and resource boreholes</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🌿</div>
-                <h3>Environment</h3>
-                <p>Protection and sustainable management</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚜</div>
-                <h3>Equipment Rental</h3>
-                <p>Supply of construction machinery</p>
+
+            <div class="carousel-indicators" id="indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Our Projects</h2>
-        
-        <div class="image-placeholder" style="margin-bottom: 2rem;">
-            📷 Projects Showcase Images<br>
-            <small>Find images on PDF Pages 5-9 - Project photos<br>
-            To add: Create an image gallery or carousel with project photos</small>
+    <!-- Clients & Partners - Page 6 -->
+    <section class="clients-partners">
+        <h2 class="section-title">Clients & Partners</h2>
+        <div class="image-placeholder">
+            📷 Clients & Partners Logos<br>
+            <small>Find image on PDF Page 6 - Client and partner logos<br>
+            To add: Replace with partner logos grid</small>
         </div>
-        
-        <div class="project-categories">
-            <div class="project-category">
-                <h3>🛣️ Road & Transport</h3>
-                <ul class="project-list">
-                    <li><span class="project-year">2017</span> RN1 Nouakchott–Rosso Rehabilitation (World Bank)</li>
-                    <li><span class="project-year">2018-2019, 2025</span> RN1 Nouakchott–Nouadhibou Maintenance (World Bank)</li>
-                    <li><span class="project-year">Multiple Years</span> Secondary Roads & Rural Tracks (Ministry of Equipment)</li>
-                    <li><span class="project-year">2025</span> Atar Road Rehabilitation (Ministry of Equipment)</li>
-                </ul>
+        <div class="partners-grid">
+            <div class="partner-category">
+                <div class="partner-icon">🏛️</div>
+                <h3>Public Sector</h3>
+                <p>Government institutions & municipalities</p>
             </div>
-            
-            <div class="project-category">
-                <h3>🌱 Environmental & Sustainable</h3>
-                <ul class="project-list">
-                    <li><span class="project-year">2022, 2024</span> Great Green Wall Project (European Union)</li>
-                    <li><span class="project-year">2022</span> Tree Plantations in Nouakchott (EU)</li>
-                    <li><span class="project-year">2022</span> Dune Stabilization Projects (Ministry of Environment)</li>
-                </ul>
+            <div class="partner-category">
+                <div class="partner-icon">🏢</div>
+                <h3>Private Sector</h3>
+                <p>Companies and individuals</p>
             </div>
-            
-            <div class="project-category">
-                <h3>💦 Water & Hydraulic</h3>
-                <ul class="project-list">
-                    <li><span class="project-year">2017, 2019</span> Boghé & Sélibaby Wells (Ministry of Hydraulics)</li>
-                    <li><span class="project-year">2018, 2024</span> Solar Pump Installations (Ministry of Hydraulics)</li>
-                    <li><span class="project-year">2024</span> Rural Water & Sanitation Program (World Bank)</li>
-                    <li><span class="project-year">2025</span> Chinguetti Community Well (Ministry of Hydraulics)</li>
-                </ul>
+            <div class="partner-category">
+                <div class="partner-icon">🌍</div>
+                <h3>International Partners</h3>
+                <p>Organizations and institutions</p>
             </div>
-            
-            <div class="project-category">
-                <h3>🚢 Port & Logistics</h3>
-                <ul class="project-list">
-                    <li><span class="project-year">2023</span> Nouadhibou Port Expansion (Government of Mauritania)</li>
-                    <li>Strengthening trade and export capacity with port infrastructure</li>
-                </ul>
+        </div>
+    </section>
+
+    <!-- Strategic Alignment - Page 10 -->
+    <section>
+        <h2 class="section-title">Strategic Alignment</h2>
+        <div class="overview-content">
+            <div class="image-placeholder">
+                📷 Strategic Alignment Diagram<br>
+                <small>Find image on PDF Page 10 - Strategic alignment visual<br>
+                To add: Replace with strategic alignment diagram</small>
             </div>
+            <p style="font-size: 1.15rem;">MBTP aligns its expertise with national infrastructure programs, focusing on roads, hydraulics, drilling, and environment. By working with ENER and public institutions, MBTP contributes to the sustainability and expansion of Mauritania's infrastructure.</p>
+        </div>
+    </section>
+
+    <!-- Comparison Section - Page 11 -->
+    <section id="comparison" class="comparison-section">
+        <h2 class="section-title">Comparison: MBTP vs Competitors</h2>
+        <div class="image-placeholder">
+            📷 Comparison Visual<br>
+            <small>Find image on PDF Page 11 - Comparison chart or infographic<br>
+            To add: Replace with comparison visual</small>
+        </div>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>MBTP</th>
+                        <th>Competitors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Human Resources</strong></td>
+                        <td class="highlight">20+ Admin, 50+ Technical Staff</td>
+                        <td>Limited staff, less technical expertise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Equipment & Fleet</strong></td>
+                        <td class="highlight">50+ Vehicles, Machines, Rigs</td>
+                        <td>Fewer machines, limited fleet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Experience</strong></td>
+                        <td class="highlight">Projects with NR, ATR, Ministry (2015, 2020, 2022)</td>
+                        <td>Less exposure to government projects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reliability</strong></td>
+                        <td class="highlight">Trusted by public and private sectors</td>
+                        <td>Not consistent in delivery</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Conclusion Section - Page 12 -->
+    <section style="background: var(--light-gray);">
+        <h2 class="section-title">Conclusion</h2>
+        <div class="overview-content">
+            <div class="image-placeholder">
+                📷 Conclusion/Summary Visual<br>
+                <small>Find image on PDF Page 12 - Conclusion graphic or company achievement visual<br>
+                To add: Replace with conclusion visual</small>
+            </div>
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
+                As a reliable partner for both government and private sectors, <strong>MBTP is your trusted choice</strong> for delivering high-quality infrastructure projects.
+            </p>
+            <p style="font-size: 1.15rem; text-align: center;">
+                With more than <strong>70 qualified staff</strong>, a fleet of over <strong>50 machines and vehicles</strong>, and strong partnerships with NR, ATR, and the Ministry of Transport, MBTP demonstrates <strong>unmatched execution capacity</strong>.
+            </p>
         </div>
     </section>
 
@@ -640,19 +1227,104 @@
                 </div>
             </div>
             <div class="contact-info">
-                <h3>Business Hours</h3>
-                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
-                Saturday: 8:00 AM - 1:00 PM<br>
-                Sunday: Closed</p>
-                
-                <h3 style="margin-top: 2rem;">Our Partners</h3>
+                <h3>Key Partnerships</h3>
                 <ul style="list-style: none; padding: 0;">
-                    <li>• Government Institutions</li>
-                    <li>• World Bank</li>
-                    <li>• European Union</li>
-                    <li>• Ministry of Equipment</li>
-                    <li>• Ministry of Hydraulics</li>
+                    <li style="padding: 0.5rem 0;">✓ World Bank</li>
+                    <li style="padding: 0.5rem 0;">✓ European Union</li>
+                    <li style="padding: 0.5rem 0;">✓ Ministry of Equipment</li>
+                    <li style="padding: 0.5rem 0;">✓ Ministry of Hydraulics</li>
+                    <li style="padding: 0.5rem 0;">✓ Ministry of Environment</li>
+                    <li style="padding: 0.5rem 0;">✓ Government of Mauritania</li>
+                    <li style="padding: 0.5rem 0;">✓ NR, ATR Organizations</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Sectors Visual - Page 7 -->
+    <section style="background: var(--white); padding: 40px 2rem;">
+        <h2 class="section-title">Market Sectors</h2>
+        <div class="market-sectors-container">
+            <div class="sectors-chart">
+                <div class="sector-wrapper">
+                    <div class="sector-bar" data-sector="public-works">
+                        <div class="sector-fill" style="width: 35%;">
+                            <div class="sector-icon">🏗️</div>
+                            <span class="sector-percentage">35%</span>
+                        </div>
+                    </div>
+                    <div class="sector-label">
+                        <h4>Public Works</h4>
+                        <p>Roads & Infrastructure</p>
+                    </div>
+                </div>
+
+                <div class="sector-wrapper">
+                    <div class="sector-bar" data-sector="hydraulic">
+                        <div class="sector-fill" style="width: 25%;">
+                            <div class="sector-icon">💧</div>
+                            <span class="sector-percentage">25%</span>
+                        </div>
+                    </div>
+                    <div class="sector-label">
+                        <h4>Hydraulic</h4>
+                        <p>Water Management</p>
+                    </div>
+                </div>
+
+                <div class="sector-wrapper">
+                    <div class="sector-bar" data-sector="environment">
+                        <div class="sector-fill" style="width: 20%;">
+                            <div class="sector-icon">🌿</div>
+                            <span class="sector-percentage">20%</span>
+                        </div>
+                    </div>
+                    <div class="sector-label">
+                        <h4>Environment</h4>
+                        <p>Sustainable Solutions</p>
+                    </div>
+                </div>
+
+                <div class="sector-wrapper">
+                    <div class="sector-bar" data-sector="drilling">
+                        <div class="sector-fill" style="width: 10%;">
+                            <div class="sector-icon">⚙️</div>
+                            <span class="sector-percentage">10%</span>
+                        </div>
+                    </div>
+                    <div class="sector-label">
+                        <h4>Drilling</h4>
+                        <p>Boreholes & Resources</p>
+                    </div>
+                </div>
+
+                <div class="sector-wrapper">
+                    <div class="sector-bar" data-sector="equipment">
+                        <div class="sector-fill" style="width: 10%;">
+                            <div class="sector-icon">🚜</div>
+                            <span class="sector-percentage">10%</span>
+                        </div>
+                    </div>
+                    <div class="sector-label">
+                        <h4>Equipment Rental</h4>
+                        <p>Machinery Supply</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sectors-summary">
+                <h3>Our Market Distribution</h3>
+                <p>MBTP's diverse portfolio spans across multiple infrastructure sectors, with a strategic focus on public works and hydraulic projects that form the backbone of Mauritania's development. Our balanced approach ensures we can meet varied client needs while maintaining expertise across all service areas.</p>
+                <div class="total-projects">
+                    <div class="project-stat">
+                        <span class="stat-value">100+</span>
+                        <span class="stat-desc">Completed Projects</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="stat-value">5</span>
+                        <span class="stat-desc">Key Sectors</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -661,11 +1333,13 @@
     <footer>
         <div class="footer-content">
             <div class="download-section">
-                <p>Download our company presentation</p>
-                <a href="MBTP_Presentation.pdf" class="download-btn" download>📥 Download Brochure</a>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Download our complete company presentation</p>
+                <a href="MBTP_Presentation.pdf" class="download-btn" download>📥 Download Brochure (PDF)</a>
             </div>
-            <p>&copy; 2025 MBTP - Mauritania Building & Public Works. All rights reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">Building Mauritania's Future, One Project at a Time</p>
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>&copy; 2025 MBTP - Mauritania Building & Public Works. All rights reserved.</p>
+                <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--accent-gold);">Building Mauritania's Future, One Project at a Time</p>
+            </div>
         </div>
     </footer>
 
@@ -687,7 +1361,7 @@
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        
+
         mobileMenu.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
             navLinks.style.position = 'absolute';
@@ -698,6 +1372,82 @@
             navLinks.style.flexDirection = 'column';
             navLinks.style.padding = '1rem';
             navLinks.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+
+        // Carousel functionality
+        const carouselContainer = document.getElementById('carouselContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
+
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        function updateCarousel() {
+            const offset = -currentSlide * 100;
+            carouselContainer.style.transform = `translateX(${offset}%)`;
+
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        });
+
+        // Indicator clicks
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-play carousel
+        let autoPlayInterval = setInterval(() => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateCarousel();
+        }, 5000); // Change slide every 5 seconds
+
+        // Pause auto-play on hover
+        const carousel = document.querySelector('.projects-carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0;
+                }
+                updateCarousel();
+            }, 5000);
         });
 
         // Intersection Observer for fade-in animations
@@ -716,11 +1466,33 @@
         }, observerOptions);
 
         // Apply animation to elements
-        document.querySelectorAll('.service-card, .stat-card, .project-category').forEach(el => {
+        document.querySelectorAll('.expertise-card, .stat-card, .partner-category, .value-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Add navigation highlighting on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    if (navLink) {
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.style.color = 'var(--text-dark)';
+                        });
+                        navLink.style.color = 'var(--primary-blue)';
+                    }
+                }
+            });
         });
     </script>
 </body>
